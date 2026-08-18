@@ -34,6 +34,7 @@ package JavaFoundationalCourse;
 //------------
 //
 //------------
+//
 class fclass{
     public void display(){
         System.out.println("USEING fCLASS");
