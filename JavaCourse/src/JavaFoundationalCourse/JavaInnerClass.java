@@ -32,21 +32,26 @@ package JavaFoundationalCourse;
 //    }
 //}
 //------------
-public class JavaInnerClass {
-    public static void main(String[] args) {
-        OutClass num1 = new OutClass();
-        OutClass.InnerClass num2 = new OutClass.InnerClass();
-        System.out.println(num1.b+"AND"+num2.InnerMethod());
+//
+//------------
+class fclass{
+    public void display(){
+        System.out.println("USEING fCLASS");
     }
 }
-class OutClass{
-    int b=10;
-    static class InnerClass{
-        public int InnerMethod(){
-            int a=10;
-            System.out.println(a++);
-            return a;
-
-        }
+class sclass{
+    public void openplay() {
+        fclass f1 = new fclass() {
+            public void display() {
+                System.out.println("USEING sclass");
+            }
+        };
+        f1.display();
+    }
+}
+class mainclass {
+    public static void main(String[] args){
+        sclass s1=new sclass();
+        s1.openplay();
     }
 }
