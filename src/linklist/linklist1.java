@@ -203,16 +203,47 @@ package linklist;
  * obj.addAtIndex(index,val);
  * obj.deleteAtIndex(index);
  */
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        return reserve(null, head);
-    }
-    public ListNode reserve(ListNode cur, ListNode pre) {
-        if (pre == null)
-            return cur;
-        ListNode temp = null;
-        temp = pre.next;
-        pre.next = pre;
-        return reserve(pre, temp);
+//class Solution {
+//    public ListNode reverseList(ListNode head) {
+//        return reserve(null, head);
+//    }
+//    public ListNode reserve(ListNode cur, ListNode pre) {
+//        if (pre == null)
+//            return cur;
+//        ListNode temp = null;
+//        temp = pre.next;
+//        pre.next = pre;
+//        return reserve(pre, temp);
+//    }
+//}
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode fastIndex=head;
+        ListNode slowIndex=head;
+        while(fastIndex!=null&&fastIndex.next!=null){
+            fastIndex=fastIndex.next.next;
+            slowIndex=slowIndex.next;
+            if(slowIndex==fastIndex){
+                ListNode rep=fastIndex;
+                ListNode newh=head;
+                while(rep!=newh){
+                    rep=rep.next;
+                    newh=newh.next;
+                }
+                return newh;
+            }
+        }
+        return null;
     }
 }
