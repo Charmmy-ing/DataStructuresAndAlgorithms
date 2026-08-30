@@ -48,27 +48,25 @@ import java.util.Set;
         }
         return true;
     }
-    class Solution {
-    public boolean isHappy(int n) {
-        Set<Integer> arr= new HashSet<Integer>();
-        while(!arr.contains(n)){
-              arr.add(n);
-              n=getnextnum(n);
+}
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] arr=new int[2];
+        if(nums==null||nums.length==0){
+            return arr;
         }
-        return n==1;
-    }
-
-    private int getnextnum(int n){
-        int num=0;
-        while(n!=0){
-            int temp=n%10;
-            num+=temp*temp;
-            n/=10;
+        Map<Integer,Integer> hashm=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int temp=target-nums[i];
+            if(hashm.containsKey(temp)){
+                arr[0]=i;
+                arr[1]=hashm.get(temp);
+                break;
+            }
+            hashm.put(nums[i],i);
         }
-        return num;
+        return arr;
     }
 }
-}
-
  */
 }
