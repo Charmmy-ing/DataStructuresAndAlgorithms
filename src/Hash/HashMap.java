@@ -48,6 +48,26 @@ import java.util.Set;
         }
         return true;
     }
+    class Solution {
+    public boolean isHappy(int n) {
+        Set<Integer> arr= new HashSet<Integer>();
+        while(!arr.contains(n)){
+              arr.add(n);
+              n=getnextnum(n);
+        }
+        return n==1;
+    }
+
+    private int getnextnum(int n){
+        int num=0;
+        while(n!=0){
+            int temp=n%10;
+            num+=temp*temp;
+            n/=10;
+        }
+        return num;
+    }
+}
 }
 
  */
