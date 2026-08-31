@@ -1,6 +1,55 @@
 package Hash;
 
 public class HashMap {
+    public static void main(String[] args) {
+//        class Solution {
+//            public int[][] generateMatrix(int n) {
+//                int[][] arr = new int[n][n];
+//                int loop = n / 2;
+//                int x = 0;
+//                int y = 0;
+//                int off = 1;
+//                int count = 1;
+//
+//                while (loop > 0) {
+//                    int i = y;
+//                    int j = x;
+//
+//                    for (i; i < n - off; i++) {
+//                        arr[j][i] = count++;
+//                    }
+//                    for (j; j < n - off; j++) {
+//                        arr[j][i] = count++;
+//                    }
+//                    for (i; i > y; i--) {
+//                        arr[j][i] = count++;
+//                    }
+//                    for (j; j > x; j--) {
+//                        arr[j][i] = count++;
+//                    }
+//                    x++;
+//                    y++;
+//                    loop--;
+//                    off++;
+//                }
+//                if (n % 2 == 1) {
+//                    int mid = n / 2;
+//                    arr[mid][mid] = n * n;
+//                }
+//                return arr;
+//            }
+//        }
+//
+//        // 测试代码
+//        Solution sol = new Solution();
+//        int[][] result = sol.generateMatrix(3);
+//        for (int[] row : result) {
+//            for (int num : row) {
+//                System.out.print(num + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
 /*    import java.util.HashSet;
 import java.util.Set;
 
@@ -68,5 +117,24 @@ class Solution {
         return arr;
     }
 }
- */
+// */
+//       class Solution {
+//           public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+//               int res = 0;
+//               HashMap<Integer, Integer> map = new HashMap();
+//               for (int i : nums1) {
+//                   for (int j : nums2) {
+//                       int sum = i + j;
+//                       map.put(sum, map.getOrDefault(sum, 0) + 1);
+//                   }
+//               }
+//               for (int i : nums3) {
+//                   for (int j : nums4) {
+//                       res += map.getOrDefault(-(i + j), 0);
+//                   }
+//               }
+//               return res;
+//           }
+//       }
+    }
 }
