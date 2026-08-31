@@ -136,5 +136,25 @@ class Solution {
 //               return res;
 //           }
 //       }
+//        class Solution {
+//            public boolean canConstruct(String ransomNote, String magazine) {
+//                if (magazine.length() < ransomNote.length()) {
+//                    return false;
+//                }
+//                int[] arr = new int[26];
+//                for (char i : magazine.toCharArray()) {
+//                    arr[i - 'a']++;
+//                }
+//                for (char i : ransomNote.toCharArray()) {
+//                    arr[i - 'a']--;
+//                }
+//                for (int i : arr) {
+//                    if (i < 0) {
+//                        return false;
+//                    }
+//                }
+//                return true;
+//            }
+        }
     }
-}
+
