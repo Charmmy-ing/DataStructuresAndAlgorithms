@@ -39,7 +39,41 @@ public class Stringtest {
         return new String(arr);
     }
 }
-       */
+import java.util.*;
+public class Main{
+    public static char[] resultArray (String s){
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            if(Character.isDigit(s.charAt(i))){
+                count++;
+            }
+        }
+        char[] arrary=new char[count*5+s.length()];
+        System.arraycopy(s.toCharArray(),0,arrary,0,s.length());
+        int slength=s.length();
+        int arrlength=arrary.length;
+    for(int left=slength-1, right=arrlength-1;left<right;left--,right--){
+        if(Character.isDigit(arrary[left])){
+            arrary[right]='r';
+            arrary[right-1]='e';
+            arrary[right-2]='b';
+            arrary[right-3]='m';
+            arrary[right-4]='u';
+            arrary[right-5]='n';
+            right-=5;
+        }else{
+        arrary[right]=arrary[left];
         }
     }
+    return arrary;
+    }
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        String s=scanner.next();
+        System.out.println(resultArray(s));
+        scanner.close();
+    }
+}
+       */
+        }
 }
