@@ -74,6 +74,34 @@ public class Main{
         scanner.close();
     }
 }
+class Solution {
+    public String reverseWords(String s) {
+        char[] initarr = s.toCharArray();
+        char[] resultarr = new char[initarr.length+1];
+        int i = initarr.length - 1;
+        int index = 0;
+        while (i >= 0) {
+            while (i>=0&&initarr[i] == ' ') {
+                i--;
+            }
+            int right = i;
+            while (i>=0&&initarr[i]!= ' ') {
+                i--;
+            }
+            for (int j = i + 1; j <= right; j++) {
+                resultarr[index++] = initarr[j];
+                if (j == right) {
+                    resultarr[index++] = ' ';
+                }
+            }
+        }
+        if(index==0){
+            return " ";
+        }else{
+            return new String(resultarr,0,index-1);
+        }
+    }
+}
        */
         }
 }
