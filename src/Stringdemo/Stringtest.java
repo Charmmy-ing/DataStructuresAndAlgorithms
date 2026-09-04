@@ -102,6 +102,61 @@ class Solution {
         }
     }
 }
+O(1)space
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder sb = removespace(s);
+        reverseAllWords(sb, 0, sb.length() - 1);
+        reverseEachWords(sb);
+        return sb.toString();
+    }
+
+    //线去除多余空格，再反转整个字符串，然后再反转单个单词；
+    private static StringBuilder removespace(String s) {
+        int start = 0;
+        int end = s.length() - 1;
+        while (s.charAt(start) == ' ') {
+            start++;
+        }
+        while (s.charAt(end) == ' ') {
+            end--;
+        }
+        StringBuilder sb = new StringBuilder();
+        while (start <= end) {
+            char c = s.charAt(start);
+            if (c != ' ' || sb.charAt(sb.length() - 1) != ' ') {
+                sb.append(c);
+            }
+            start++;
+        }
+        return sb;
+    }
+
+    private void reverseAllWords(StringBuilder sb, int start, int end) {
+        while (start < end) {
+            char temp = sb.charAt(end);
+            sb.setCharAt(end, sb.charAt(start));
+            sb.setCharAt(start, temp);
+            start++;
+            end--;
+        }
+    }
+
+    private void reverseEachWords(StringBuilder sb) {
+        int start = 0;
+        int end = 0;
+        int leng = sb.length();
+        while (start < leng) {
+            while (end < leng && sb.charAt(end) != ' ') {
+                end++;
+            }
+            reverseAllWords(sb, start, end - 1);
+            start = end + 1;
+            end = start + 1;
+        }
+
+    }
+}
        */
         }
 }
