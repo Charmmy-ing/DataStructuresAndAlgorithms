@@ -1,5 +1,7 @@
 package Stringdemo;
 
+import java.util.Scanner;
+
 public class Stringtest {
     public static void main(String[] args) {
       /*  class Solution {
@@ -157,6 +159,39 @@ class Solution {
 
     }
 }
+import java.util.*;
+
+ public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());
+        String s = sc.nextLine();
+        char[] c = s.toCharArray();
+        reverseWords(c, 0, s.length() - 1);
+        reverseWords(c, 0, n - 1);
+        reverseWords(c, n, s.length() - 1);
+        System.out.print(c);
+    }
+
+    private static void reverseWords(char[] c, int i, int j) {
+        while (i < j) {
+            c[i] ^= c[j];
+            c[j] ^= c[i];
+            c[i] ^= c[j];
+
+        i++;
+        j--;
+        }
+    }
+}
+
        */
+
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("请输入一个整数：");
+                // 读取整行输入并转换为整数
+                int workAge = Integer.parseInt(scanner.nextLine());
+                System.out.println("您输入的整数是：" + workAge);
+
         }
 }

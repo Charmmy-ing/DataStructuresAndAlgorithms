@@ -259,42 +259,42 @@ package linklist;
  *     }
  * }
  */
-public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode curA = headA;
-        ListNode curB = headB;
-        int lenA = 0;
-        int lenB = 0;
-        while (curA != null) {
-            lenA++;
-            curA = curA.next;
-        }
-        while (curB != null) {
-            lenB++;
-            curB = curB.next;
-        }
-        curA = headA;
-        curB = headB;
-        int gap = Math.abs((lenA - lenB));
-        if (lenA > lenB) {
-            while (gap > 0) {
-                gap--;
-                curA = curA.next;
-            }
-        } else if (lenA < lenB) {
-            while (gap > 0) {
-                gap--;
-                curB = curB.next;
-            }
-        }
-        while (curA != null) {
-            if (curA == curB) {
-                return curA;
-            } else {
-                curA = curA.next;
-                curB = curB.next;
-            }
-        }
-        return null;
-    }
-}
+//public class Solution {
+//    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//        ListNode curA = headA;
+//        ListNode curB = headB;
+//        int lenA = 0;
+//        int lenB = 0;
+//        while (curA != null) {
+//            lenA++;
+//            curA = curA.next;
+//        }
+//        while (curB != null) {
+//            lenB++;
+//            curB = curB.next;
+//        }
+//        curA = headA;
+//        curB = headB;
+//        int gap = Math.abs((lenA - lenB));
+//        if (lenA > lenB) {
+//            while (gap > 0) {
+//                gap--;
+//                curA = curA.next;
+//            }
+//        } else if (lenA < lenB) {
+//            while (gap > 0) {
+//                gap--;
+//                curB = curB.next;
+//            }
+//        }
+//        while (curA != null) {
+//            if (curA == curB) {
+//                return curA;
+//            } else {
+//                curA = curA.next;
+//                curB = curB.next;
+//            }
+//        }
+//        return null;
+//    }
+//}
