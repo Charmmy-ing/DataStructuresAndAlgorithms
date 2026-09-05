@@ -184,6 +184,7 @@ import java.util.*;
         }
     }
 }
+----------------------------------kmp----------------------------------------
 class Solution {
     public int strStr(String haystack, String needle) {
         if (needle.length() == 0) {
@@ -218,6 +219,29 @@ class Solution {
                 j++;
             }
             next[i] = j;
+        }
+    }
+}
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        //构建前缀表；
+        int[] next = new int[s.length()];
+        int len=s.length();
+        int j = 0;
+        next[0] = 0;
+        for (int i = 1; i < len; i++) {
+            while (j > 0 && s.charAt(i) != s.charAt(j)) {
+                j = next[j - 1];
+            }
+            if (s.charAt(i) == s.charAt(j)) {
+                j++;
+            }
+            next[i] = j;
+        }
+        if (next[len - 1] > 0 && (len % (len - next[len - 1]) == 0)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
