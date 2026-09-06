@@ -290,7 +290,7 @@ class MyQueue {
  * int param_3 = obj.peek();
  * boolean param_4 = obj.empty();
  */
-       
+
 
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("请输入一个整数：");
