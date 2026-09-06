@@ -92,6 +92,26 @@ public class stack_queue {
  * int param_3 = obj.peek();
  * boolean param_4 = obj.empty();
  */
+        /*class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char i : s.toCharArray()) {
+            if (i == ')' && !stack.isEmpty() && stack.peek() == '(') {
+                stack.pop();
+            } else if (i == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                stack.pop();
+            } else if (i == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                stack.pop();
+            } else {
+                stack.push(i);
+            }
+
+        }
+        return stack.isEmpty();
+    }
+}
+*/
+         */
 
     }
 }
