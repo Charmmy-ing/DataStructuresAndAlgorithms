@@ -130,7 +130,23 @@ public class stack_queue {
         }
 
          */
-        
+        /*class Solution {
+    public String removeDuplicates(String s) {
+        StringBuffer st=new StringBuffer();
+        int top=-1;
+        for(int i=0;i<s.length();i++){
+            char j=s.charAt(i);
+          if(top>=0&&st.charAt(top)==j){
+            st.deleteCharAt(top);
+            top--;
+          }else{
+            st.append(j);
+            top++;
+          }
+        }
+        return st.toString();
+    }
+}*/
 
     }
 }
