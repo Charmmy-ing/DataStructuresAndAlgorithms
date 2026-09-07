@@ -111,7 +111,26 @@ public class stack_queue {
     }
 }
 */
+    /*    class Solution {
+            public String removeDuplicates(String s) {
+                Stack<Character> nums = new Stack<>();
+                for (int j = 0; j < s.length(); j++) {
+                    if (!nums.isEmpty() && nums.peek() == s.charAt(j)) {
+                        nums.pop();
+                    } else {
+                        nums.push(s.charAt(j));
+                    }
+                }
+                StringBuffer st = new StringBuffer();
+                for (char i : nums) {
+                    st.append(i);
+                }
+                return st.toString();
+            }
+        }
+
          */
+        
 
     }
 }
