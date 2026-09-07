@@ -147,6 +147,27 @@ public class stack_queue {
         return st.toString();
     }
 }*/
-
+      /*  class Solution {
+            public int evalRPN(String[] tokens) {
+                Stack<Integer> st = new Stack<>();
+                for (String s : tokens) {
+                    if (s.equals("+")) {
+                        st.push(st.pop() + st.pop());
+                    } else if (s.equals("-")) {
+                        st.push(-st.pop() + st.pop());
+                    } else if (s.equals("*")) {
+                        st.push(st.pop() * st.pop());
+                    } else if (s.equals("/")) {
+                        int value1 = st.pop();
+                        int value0 = st.pop();
+                        st.push(value0 / value1);
+                    } else {
+                        st.push(Integer.valueOf(s));
+                    }
+                }
+                return st.pop();
+            }
+        }
+       */
     }
 }
