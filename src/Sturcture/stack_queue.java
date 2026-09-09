@@ -193,7 +193,43 @@ public class stack_queue {
                 return result;
             }
         }
-        
+        -----------------------------------------
+        class NewQueue {
+    Deque<Integer> dq = new LinkedList<>();
+    //poll,add,peek
+    void add(int val) {
+        while (!dq.isEmpty() && val > dq.getLast()) {
+            dq.removeLast();
+        }
+        dq.add(val);
+    }
+    void poll(int val) {
+        if (!dq.isEmpty() && val == dq.peek()) {
+            dq.poll();
+        }
+    }
+    int peek() {
+        return dq.peek();
+    }
+}
+
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int len = nums.length;
+        int[] result = new int[len - k + 1];
+        NewQueue dq = new NewQueue();
+        for (int i = 0; i < k; i++) {
+            dq.add(nums[i]);
+        }
+        result[0] = dq.peek();
+        for (int i = k; i < len; i++) {
+            dq.poll(nums[i - k]);
+            dq.add(nums[i]);
+            result[i - k + 1] = dq.peek();
+        }
+        return result;
+    }
+}
          */
     }
 }
