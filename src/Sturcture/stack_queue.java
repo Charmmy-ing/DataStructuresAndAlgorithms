@@ -169,5 +169,31 @@ public class stack_queue {
             }
         }
        */
+        /*class Solution {
+            public int[] topKFrequent(int[] nums, int k) {
+                Map<Integer, Integer> map = new HashMap();
+                for (int i = 0; i < nums.length; i++) {
+                    map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+                }
+                PriorityQueue<int[]> dq = new PriorityQueue<>((i, j) -> i[1] - j[1]);
+                for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                    if (dq.size() < k) {
+                        dq.add(new int[] { entry.getKey(), entry.getValue() });
+                    } else {
+                        if (entry.getValue() > dq.peek()[1]) {
+                            dq.poll();
+                            dq.add(new int[] { entry.getKey(), entry.getValue() });
+                        }
+                    }
+                }
+                int[] result = new int[k];
+                for (int i = k - 1; i >= 0; i--) {
+                    result[i] = dq.poll()[0];
+                }
+                return result;
+            }
+        }
+        
+         */
     }
 }
