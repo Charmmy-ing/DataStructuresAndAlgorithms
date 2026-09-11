@@ -143,8 +143,86 @@ public class Tree {
         return list;
     }
 }
+----------------------------------------------
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root != null) {
+            stack.push(root);
+        }
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.peek();
+            if (cur != null) {
+                stack.pop();
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                }
+                stack.push(cur);
+                stack.push(null);
+                if (cur.left != null) {
+                    stack.push(cur.left);
+                }
+            } else {
+                stack.pop();
+                cur = stack.peek();
+                stack.pop();
+                list.add(cur.val);
+            }
+        }
+        return list;
+    }
+}-------------------------------------------------
+       /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ ----------------------------------------------------------------
+        class Solution {
+            List<List<Integer>> list = new ArrayList<List<Integer>>();
+
+            public List<List<Integer>> levelOrder(TreeNode root) {
+                Treeresult(root);
+                return list;
+            }
+
+            public void Treeresult(TreeNode root) {
+                if (root == null) {
+                    return;
+                }
+                Queue<TreeNode> que = new LinkedList<>();
+                que.add(root);
+                while (!que.isEmpty()) {
+                    List<Integer> result = new ArrayList<>();
+                    int len = que.size();
+                    while (len > 0) {
+                        TreeNode cur = que.poll();
+                        result.add(cur.val);
+                        if (cur.left != null) {
+                            que.add(cur.left);
+                        }
+                        if (cur.right != null) {
+                            que.add(cur.right);
+                        }
+                        len--;
+                    }
+                    list.add(result);
+                }
+            }
+        }
+
        */
-       
+
 
             }
 
