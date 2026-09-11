@@ -114,7 +114,37 @@ public class Tree {
                 return result;
             }
         }
+        class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root != null) {
+            stack.push(root);
+        }
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.peek();
+            if (cur != null) {
+                stack.pop();
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                }
+                stack.push(cur);
+                stack.push(null);
+                if (cur.left != null) {
+                    stack.push(cur.left);
+                }
+            } else {
+                stack.pop();
+                cur = stack.peek();
+                stack.pop();
+                list.add(cur.val);
+            }
+        }
+        return list;
+    }
+}
        */
+       
 
             }
 
