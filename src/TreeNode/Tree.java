@@ -222,8 +222,108 @@ class Solution {
         }
 
        */
+/*
+        class Solution {
+            List<List<Integer>> result = new LinkedList<>();
+            public List<List<Integer>> levelOrderBottom(TreeNode root) {
+                TreeN(root);
+                return result;
+            }
 
+            public void TreeN(TreeNode root) {
+                if (root == null) {
+                    return;
+                }
+                Queue<TreeNode> que = new LinkedList<>();
+                que.offer(root);
+                // List<List<Integer>> rep = new ArrayList<>();
+                while (!que.isEmpty()) {
+                    int len = que.size();
+                    List<Integer> list = new ArrayList<>();
+                    while (len > 0) {
+                        TreeNode cur = que.poll();
+                        list.add(cur.val);
+                        if (cur.left != null) {
+                            que.offer(cur.left);
+                        }
+                        if (cur.right != null) {
+                            que.offer(cur.right);
+                        }
+                        len--;
+                    }
+                    //rep.add(list);
+                    //result.add(list);
+                    result.addFirst(list);
+                }
 
+                // for (int i = rep.size() - 1; i >= 0; i--) result.add(rep.get(i));
+                //Collections.reverse(result);
+
+            }
+        }
+*/
+        /*
+        class Solution {
+            public List<Integer> rightSideView(TreeNode root) {
+                List<Integer> result = new LinkedList<>();
+                if (root == null) {
+                    return result;
+                }
+                Queue<TreeNode> que = new LinkedList<>();
+                que.offer(root);
+                while (!que.isEmpty()) {
+                    int len = que.size();
+                    while (len > 0) {
+                        TreeNode cur = que.poll();
+                        if (len == 1) {
+                            result.add(cur.val);
+                        }
+                        if (cur.left != null) {
+                            que.add(cur.left);
+                        }
+                        if (cur.right != null) {
+                            que.add(cur.right);
+                        }
+                        len--;
+                    }
+                }
+                return result;
+            }
+        }
+
+         */
+        /*
+        class Solution {
+            public List<Double> averageOfLevels(TreeNode root) {
+                List<Double> result = new LinkedList<>();
+                if (root == null) {
+                    return result;
+                }
+                Queue<TreeNode> que = new LinkedList<>();
+                que.offer(root);
+                while (!que.isEmpty()) {
+                    int len = que.size();
+                    int size = len;
+                    Double nums = 0.0;
+                    while (len > 0) {
+                        TreeNode cur = que.poll();
+                        nums += cur.val;
+                        if (cur.left != null) {
+                            que.add(cur.left);
+                        }
+                        if (cur.right != null) {
+                            que.add(cur.right);
+                        }
+                        len--;
+                    }
+                    result.add(nums / size);
+
+                }
+                return result;
+            }
+        }
+        */
+        
             }
 
 }
