@@ -1,9 +1,9 @@
 package linklist;
-//
-//import java.util.LinkedList;
-//
-//public class linklist1 {
-//    public static void main(String[] args) {
+
+import java.util.LinkedList;
+
+public class linklist1 {
+   public static void main(String[] args) {
 //        ListNode head = new ListNode(1);
 //        head.next=new ListNode(2);
 //        head.next.next=new ListNode(3);
@@ -297,4 +297,43 @@ package linklist;
 //        }
 //        return null;
 //    }
-//}
+/*/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ /*
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        ListNode fastIndex = head;
+        ListNode slowIndex = head;
+        while (fastIndex != null && fastIndex.next != null) {
+            fastIndex = fastIndex.next.next;
+            slowIndex = slowIndex.next;
+        }
+        Stack<Integer> stack = new Stack<>();
+        while (slowIndex != null) {
+            stack.push(slowIndex.val);
+            slowIndex = slowIndex.next;
+        }
+        slowIndex = head;
+        while (!stack.isEmpty()) {
+            if (slowIndex.val != stack.pop()) {
+                return false;
+            } else {
+                slowIndex = slowIndex.next;
+            }
+        }
+        return true;
+    }
+}
+*/
+}
+}
