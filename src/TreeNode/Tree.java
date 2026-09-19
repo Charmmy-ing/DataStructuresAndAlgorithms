@@ -662,7 +662,27 @@ class Node {
         }
         return countNodes(root.left) + countNodes(root.right) + 1;
     }
- 
+ class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return getHight(root)!=-1;
+    }
+    public int getHight(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int leftHeight=getHight(root.left);
+        if(leftHeight==-1){
+            return -1;
+        }
+        int rightHeight=getHight(root.right);
+        if(rightHeight==-1){
+            return -1;
+        }
+        if(Math.abs(leftHeight-rightHeight)>1){
+            return -1;
+        }
+        return Math.max(leftHeight,rightHeight)+1;
+    }
          */
 
 
