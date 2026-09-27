@@ -873,6 +873,43 @@ class Node {
                 return root;
             }
         }
+ /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+
+        class Solution {
+            Map<Integer, Integer> map = new HashMap<>();
+
+            public TreeNode buildTree(int[] preorder, int[] inorder) {
+                for (int i = 0; i < inorder.length; i++) {
+                    map.put(inorder[i], i);
+                }
+                return Tree(preorder, 0, preorder.length, inorder, 0, inorder.length);
+            }
+
+            public TreeNode Tree(int[] preorder, int preBegin, int preLen, int[] inorder, int inoBegin, int inoLen) {
+                if (preBegin >= preLen || inoBegin >= inoLen) {
+                    return null;
+                }
+                int midIndex = map.get(preorder[preBegin]);
+                TreeNode node = new TreeNode(inorder[midIndex]);
+                int leftlen = midIndex - inoBegin;
+                node.left = Tree(preorder, preBegin + 1, leftlen + preBegin + 1, inorder, inoBegin, midIndex);
+                node.right = Tree(preorder, preBegin + leftlen + 1, preLen, inorder, midIndex + 1, inoLen);
+                return node;
+            }
+        }
 */
 
 
