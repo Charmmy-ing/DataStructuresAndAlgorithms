@@ -1007,6 +1007,63 @@ class Node {
                 get(root.right);
             }
         }
+
+ /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+
+        class Solution {
+            ArrayList<Integer> list;
+            int maxcount;
+            int count;
+            TreeNode pre;
+
+            public int[] findMode(TreeNode root) {
+                list = new ArrayList<>();
+                maxcount = 0;
+                count = 0;
+                pre = null;
+                find(root);
+                int[] res = new int[list.size()];
+                for (int i = 0; i < list.size(); i++) {
+                    res[i] = list.get(i);
+                }
+                return res;
+            }
+
+            public void find(TreeNode root) {
+                if (root == null) {
+                    return;
+                }
+                find(root.left);
+                int value = root.val;
+                if (pre != null && value == pre.val) {
+                    count++;
+                } else {
+                    count = 1;
+                }
+                if (count > maxcount) {
+                    list.clear();
+                    list.add(value);
+                    maxcount = count;
+                } else if (count == maxcount) {
+                    list.add(value);
+                }
+                pre = root;
+                find(root.right);
+            }
+        }
 */
 
 
