@@ -1225,7 +1225,7 @@ class Node {
  *         this.right = right;
  *     }
  * }
- 
+
         class Solution {
             public TreeNode sortedArrayToBST(int[] nums) {
                 return sort(nums, 0, nums.length - 1);
@@ -1241,7 +1241,42 @@ class Node {
                 root.right = sort(nums, mid + 1, right);
                 return root;
             }
-        }*/
+        }
+ /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+        class Solution {
+            int sum;
+
+            public TreeNode convertBST(TreeNode root) {
+                sum = 0;
+                BST(root);
+                return root;
+            }
+
+            public void BST(TreeNode root) {
+                if (root == null) {
+                    return;
+                }
+                BST(root.right);
+                sum += root.val;
+                root.val = sum;
+                BST(root.left);
+
+            }
+        }
+ */
 
 
             }
