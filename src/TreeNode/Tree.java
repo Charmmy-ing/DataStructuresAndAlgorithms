@@ -1276,6 +1276,27 @@ class Node {
 
             }
         }
+ class Solution {
+ List<List<Integer>> result = new LinkedList<>();
+ LinkedList<Integer> path = new LinkedList<>();
+
+ public List<List<Integer>> combine(int n, int k) {
+ resultcombine(n, k, 1);
+ return result;
+ }
+
+ public void resultcombine(int n, int k, int startIndex) {
+ if (path.size() == k) {
+ result.add(new LinkedList<Integer>(path));
+ return;
+ }
+ for (int i = startIndex; i <= n - k + 1 + path.size(); i++) {
+ path.add(i);
+ resultcombine(n, k, i + 1);
+ path.removeLast();
+ }
+ }
+ }
  */
 
 
