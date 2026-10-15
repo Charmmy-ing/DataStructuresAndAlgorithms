@@ -1297,6 +1297,31 @@ class Node {
  }
  }
  }
+ class Solution {
+ List<String> result = new LinkedList<>();
+
+ public List<String> letterCombinations(String digits) {
+ if (digits == null || digits.length() == 0) {
+ return result;
+ }
+ String[] numstr = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+ let(digits, numstr, 0);
+ return result;
+ }
+ StringBuilder str = new StringBuilder();
+ public void let(String digits, String[] numstr, int startIndex) {
+ if (startIndex == digits.length()) {
+ result.add(str.toString());
+ return;
+ }
+ String temp = numstr[digits.charAt(startIndex) - '0'];
+ for (int i = 0; i < temp.length(); i++) {
+ str.append(temp.charAt(i));
+ let(digits, numstr, startIndex + 1);
+ str.deleteCharAt(str.length() - 1);
+ }
+ }
+ }s
  */
 
 
