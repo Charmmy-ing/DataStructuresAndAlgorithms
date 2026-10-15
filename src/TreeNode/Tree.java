@@ -1321,7 +1321,36 @@ class Node {
  str.deleteCharAt(str.length() - 1);
  }
  }
- }s
+ }
+ class Solution {
+ List<List<Integer>> result = new LinkedList<>();
+ List<Integer> path = new LinkedList<>();
+
+ public List<List<Integer>> combinationSum3(int k, int n) {
+ com(k, n, 1, 0);
+ return result;
+ }
+
+ public void com(int k, int n, int startIndex, int sum) {
+ if (sum > n) {
+ return;
+ }
+ if (path.size() > k) {
+ return;
+ }
+ if (sum == n && path.size() == k) {
+ result.add(new LinkedList<>(path));
+ return;
+ }
+ for (int i = startIndex; i <= 9-k+path.size()+1; i++) {
+ path.add(i);
+ sum += i;
+ com(k, n, i + 1, sum);
+ sum -= i;
+ path.removeLast();
+ }
+ }
+ }
  */
 
 
